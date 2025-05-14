@@ -19,14 +19,15 @@ const TryDemo: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
+           
             
           >
-            <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col md:flex-row gap-8 ">
               <div className="md:w-1/2">
                 <img
                   src="/assets/an1.PNG"
                   alt="Analytics Dashboard"
-                  className="rounded-lg shadow-xl object-cover h-full w-full"
+                  className=" object-cover h-full w-full"
                 />
               </div>
               <div className="md:w-1/2">
@@ -70,18 +71,18 @@ const TryDemo: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="p-8 bg-white rounded-xl shadow-lg"
+            className="p-2 bg-white "
           >
             <div className="flex flex-col md:flex-row gap-8">
               <div className="md:w-1/2">
                 <img
                   src="/assets/AT1.PNG"
                   alt="Action Tracker"
-                  className="rounded-lg object-cover shadow-xl  h-full w-full"
+                  className=" object-cover   h-full w-full"
                 />
               </div>
               <div className="md:w-1/2">
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-2">
                   <FiActivity className="text-blue-600 text-2xl mr-2" />
                   <h2 className="text-2xl font-bold text-gray-800">
                     Action Tracker
@@ -119,7 +120,7 @@ const TryDemo: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="p-8 bg-white rounded-xl shadow-lg"
+            className="p-2 bg-white "
           >
             <div className="flex flex-col md:flex-row gap-8">
               <div className="md:w-1/2">
@@ -168,8 +169,8 @@ const TryDemo: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 flex min-h-screen flex-col items-center justify-between">
-      <div className="flex flex-col min-h-screen pt-20 md:pt-30 relative overflow-hidden">
+    <div className="max-w-7xl mx-auto px-1  flex min-h-screen flex-col items-center justify-between">
+      <div className="flex flex-col min-h-screen pt-28 md:pt-30 relative overflow-hidden bg-white">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Admin Dashboard Demo
         </h1>
@@ -178,10 +179,10 @@ const TryDemo: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-6 py-3 rounded-full font-medium transition-colors flex items-center ${
+            className={`px-6 py-3 rounded-2xl font-medium transition-colors flex items-center ${
               activeTab === "analytics"
-                ? "bg-blue-600 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-blue-600 text-white "
+                : "bg-white text-gray-700 hover:bg-gray-200"
             }`}
             onClick={() => setActiveTab("analytics")}
           >
@@ -191,10 +192,10 @@ const TryDemo: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-6 py-3 rounded-full font-medium transition-colors flex items-center ${
+            className={`px-6 py-3 rounded-2xl font-medium transition-colors flex items-center ${
               activeTab === "actionTracker"
-                ? "bg-blue-600 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-blue-600 text-white"
+                : "bg-white text-gray-700 hover:bg-gray-200"
             }`}
             onClick={() => setActiveTab("actionTracker")}
           >
@@ -204,10 +205,10 @@ const TryDemo: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className={`px-6 py-3 rounded-full font-medium transition-colors flex items-center ${
+            className={`px-6 py-3 rounded-2xl font-medium transition-colors flex items-center ${
               activeTab === "performanceTracker"
-                ? "bg-blue-600 text-white shadow-lg"
-                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                ? "bg-blue-600 text-white "
+                : "bg-white text-gray-700 hover:bg-gray-200"
             }`}
             onClick={() => setActiveTab("performanceTracker")}
           >
@@ -220,7 +221,7 @@ const TryDemo: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="bg-gray-50 p-6 rounded-xl"
+          className="bg-white p-6 rounded-xl"
         >
           {renderContent()}
         </motion.div>
