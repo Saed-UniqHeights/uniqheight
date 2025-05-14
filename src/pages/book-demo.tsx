@@ -117,8 +117,8 @@ export default function BookDemo() {
 
   return (
     <div>
-      <div className="bg-white max-w-[1400px] mt-10 rounded-lg shadow-xl mx-auto px-4 flex min-h-screen flex-col justify-center mb-10">
-        <div className="flex flex-col pt-20 md:pt-24 relative overflow-hidden">
+      <div className="bg-white max-w-[1400px]  rounded-lg shadow-xl mx-auto px-4 flex min-h-screen flex-col justify-center mb-10">
+        <div className="flex flex-col pt-28 md:pt-24 relative overflow-hidden">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-900 bg-clip-text inline-block text-transparent font-bold mb-4">
               GET IN TOUCH WITH

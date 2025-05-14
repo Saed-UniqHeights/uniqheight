@@ -66,7 +66,7 @@ const HeroSection = () => {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
             <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-colors duration-200">
-              Start Free 7-Day Trial
+              <a href="/book-demo">Start Free 7-Day Trial</a>
             </button>
             <button
               onClick={() => setShowVideoModal(true)}

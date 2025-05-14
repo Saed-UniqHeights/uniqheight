@@ -5,19 +5,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 const team = [
   {
-    name: "Sophie Chamberlain",
-    title: "Specialized Support",
-    image: "/assets/photo1.jpg",
+    name: "Huda Abbas",
+    title: "Founder & CEO",
+    image: "/assets/about/huda.jpg",
   },
   {
-    name: "Lana Steiner",
-    title: "VP of Customer Success",
-    image: "/assets/photo1.jpg",
+    name: "Suhayb Ahmed",
+    title: "Customer Success",
+    image: "/assets/about/Suhayb.webp",
   },
   {
-    name: "Orlando Diggs",
-    title: "Customer Success Lead",
-    image: "/assets/photo1.jpg",
+    name: "Saed Mohamed",
+    title: "Success Developer",
+    image: "/assets/about/saed.jpg",
   },
 ];
 
@@ -37,12 +37,13 @@ const AboutUs: React.FC = () => {
     <section className="bg-white  py-16 px-2 sm:px-6 lg:px-8">
       <div className="mx-auto text-center mb-12">
         <h2 className="text-2xl px-2 sm:text-3xl font-semibold text-gray-900">
-          Meet our team of{" "}
-          <em className="italic font-medium">customer success experts</em>
+          Meet our team of{" "} Our success experts
         </h2>
-        <p className="mt-4 px-4 text-gray-600 text-base sm:text-lg">
-          Get help 24/7, with our award-winning support network of payments
-          experts.
+        <p className="mt-4 md:px-50 text-gray-600 text-base sm:text-lg">
+          Get help 24/7, with a dedicated team of experts who know your business
+          inside and out. Our team is here to help you grow your business and
+          answer any questions you may have. We are committed to your success
+          and are always available to help you achieve your goals.
         </p>
       </div>
 

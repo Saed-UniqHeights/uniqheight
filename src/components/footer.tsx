@@ -34,7 +34,7 @@ export default function Footer() {
             tracking platform
           </p>
           <button className="bg-white text-[#0052CC] font-semibold p-2 rounded-md shadow md:w-32  hover:bg-gray-100 transition">
-            Book a Demo
+            <a href="/book-demo">Book a Demo</a>
           </button>
         </div>
 
