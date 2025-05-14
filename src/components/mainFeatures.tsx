@@ -13,9 +13,9 @@ import { BiLineChart } from "react-icons/bi";
 
 const FeatureCards = () => {
   return (
-    <div className="bg-white mx-auto px-6 flex min-h-screen flex-col items-center justify-between">
+    <div className="bg-white mx-auto px-6 flex min-h-screen flex-col items-center justify-between ">
       <div className="flex flex-col min-h-screen pt-4  md:pt-10 relative overflow-hidden">
-        <span className="text-4xl md:text-4xl lg:text-8xl font-bold max-w-7xl mx-auto text-center mt-2 mb-2 relative z-10 bg-gradient-to-t from-blue-700 to-blue-400 bg-clip-text text-transparent">
+        <span className="text-4xl md:text-4xl lg:text-8xl font-bold max-w-7xl mx-auto text-center mt-2 mb-2  relative z-10 bg-gradient-to-t from-blue-700 to-blue-400 bg-clip-text text-transparent">
           Main Features
         </span>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-2 mt-6">

@@ -19,8 +19,6 @@ const TryDemo: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-           
-            
           >
             <div className="flex flex-col md:flex-row gap-8 ">
               <div className="md:w-1/2">
@@ -60,7 +58,6 @@ const TryDemo: React.FC = () => {
                     </span>
                   </li>
                 </ul>
-              
               </div>
             </div>
           </motion.div>
@@ -109,7 +106,6 @@ const TryDemo: React.FC = () => {
                     <span className="text-gray-700">Collaboration tools</span>
                   </li>
                 </ul>
-               
               </div>
             </div>
           </motion.div>
@@ -158,7 +154,6 @@ const TryDemo: React.FC = () => {
                     </span>
                   </li>
                 </ul>
-             
               </div>
             </div>
           </motion.div>
@@ -172,7 +167,7 @@ const TryDemo: React.FC = () => {
     <div className="max-w-7xl mx-auto px-1  flex min-h-screen flex-col items-center justify-between">
       <div className="flex flex-col min-h-screen pt-28 md:pt-30 relative overflow-hidden bg-white">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-          Admin Dashboard Demo
+          Dashboard Demos
         </h1>
 
         <div className="flex flex-wrap gap-4 mb-8 justify-center">

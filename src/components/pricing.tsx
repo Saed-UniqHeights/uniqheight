@@ -93,7 +93,7 @@ export default function PricingSection() {
     return (
       <section className="max-w-7xl mx-auto  flex min-h-screen flex-col items-center justify-between">
         <div className="flex flex-col min-h-screen pt-3 md:pt-8 relative overflow-hidde">
-          <span className="text-4xl  md:text-4xl lg:text-8xl font-semibold bg-gradient-to-t from-blue-700 to-blue-400 bg-clip-text text-transparent mx-12 md:mx-auto lg:mx-auto text-center mt-4  relative z-20">
+          <span className="text-5xl  md:text-4xl lg:text-7xl font-semibold bg-gradient-to-t from-blue-700 to-blue-500 bg-clip-text text-transparent mx-12 md:mx-auto lg:mx-auto text-center mt-4  relative z-20">
             Pricing Based on SKU Count
           </span>
           <span className="text-lg md:text-2xl text-center mt-2 mx-12 md:mx-auto lg:mx-auto md:mt-8 tracking-wider relative z-20">
