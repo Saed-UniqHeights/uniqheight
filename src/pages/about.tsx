@@ -12,12 +12,12 @@ const team = [
   {
     name: "Suhayb Ahmed",
     title: "Customer Success",
-    image: "/assets/about/Suhayb.webp",
+    image: "/assets/about/Suhayb.jpg",
   },
   {
     name: "Saed Mohamed",
     title: "Success Developer",
-    image: "/assets/about/saed.jpg",
+    image: "/assets/about/Saed (2).jpg  ",
   },
 ];
 
@@ -25,7 +25,7 @@ const AboutUs: React.FC = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -51,7 +51,7 @@ const AboutUs: React.FC = () => {
         <Slider {...settings}>
           {team.map((member, index) => (
             <div key={index} className="px-4">
-              <div className="w-full md:w-96 lg:w-96 justify-self-center-safe   h-72 sm:h-80 overflow-hidden rounded-xl shadow-md">
+              <div className="w-full md:w-96 lg:w-96 justify-self-center-safe   h-72 sm:h-80 overflow-hidden ">
                 <img
                   src={member.image}
                   alt={member.name}
