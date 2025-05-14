@@ -6,12 +6,27 @@ import FAQ from "@/components/faq";
 import CTA from "@/components/cta";
 import BookDemo from "./book-demo";
 import Services from "./services";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import AboutUs from "./about";
 
+import { useLocation } from "react-router-dom";
+
 const Home: React.FC = () => {
-  const servicesRef = useRef(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+
+  const location = useLocation();
+ 
+  const aboutRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = (location.state as { section?: string })?.section;
+    if (section === "services" && servicesRef.current) {
+      servicesRef.current.scrollIntoView({ behavior: "smooth" });
+    } else if (section === "about" && aboutRef.current) {
+      aboutRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full bg-gray-100 overflow-x-hidden">
@@ -68,6 +83,7 @@ const Home: React.FC = () => {
         </div>
       </div>
       <motion.section
+        ref={aboutRef}
         id="about"
         className="bg-white"
         initial={{ opacity: 0 }}
@@ -91,6 +107,7 @@ const Home: React.FC = () => {
         Used by 500+ Amazon sellers managing over $100M in sales
       </div>
       <motion.section
+        ref={servicesRef}
         id="services"
         className="mr-4 md:-mb-32 md:-mt-24  "
         initial={{ opacity: 0 }}

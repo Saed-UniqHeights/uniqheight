@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi"
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   className?: string;
@@ -24,7 +23,11 @@ const Navbar = ({ className }: NavbarProps) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
- 
+  const navigate = useNavigate();
+
+  const goToSection = (section: "services" | "about") => {
+    navigate("/", { state: { section } });
+  };
 
   return (
     <nav
@@ -47,18 +50,15 @@ const Navbar = ({ className }: NavbarProps) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#services"
-      
+            <a
+              onClick={() => goToSection("services")}
               className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors relative group"
             >
               Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full">
-              
-              </span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
-              href="#about"
+              onClick={() => goToSection("about")}
               className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors relative group"
             >
               About
