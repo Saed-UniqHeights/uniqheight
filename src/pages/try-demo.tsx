@@ -123,7 +123,7 @@ const TryDemo: React.FC = () => {
                 <img
                   src="/assets/performce1.PNG"
                   alt="Performance Metrics"
-                  className="rounded-lg object-cover shadow-xl h-full w-full"
+                  className="rounded-lg object-cover  h-full w-full"
                 />
               </div>
               <div className="md:w-1/2">
