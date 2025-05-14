@@ -112,16 +112,16 @@ const Navbar = ({ className }: NavbarProps) => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/60 backdrop-blur-xl rounded-lg mx-4 shadow-xl">
           <a
-            href="/#services"
+            href="#services"
             className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-            onClick={() => setIsOpen(false)}
+            onClick={() => goToSection("services")}
           >
             Services
           </a>
           <a
-            href="/#about"
+            href="#about"
             className="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-            onClick={() => setIsOpen(false)}
+            onClick={() => goToSection("about")}
           >
             About
           </a>
