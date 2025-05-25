@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
-
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
@@ -11,9 +10,11 @@ export default defineConfig({
     postcss: "./postcss.config.js",
   },
   server: {
-    host  : true,
+    host: true,
     port: 4000,
+       
   },
+  
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

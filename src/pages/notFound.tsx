@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 const NotFound: React.FC = () => {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="relative h-screen">
+      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
+
       <motion.div
         style={styles.illustration}
         initial={{ scale: 0.8, opacity: 0 }}

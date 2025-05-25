@@ -1,97 +1,66 @@
 import { useState } from "react";
-import axios from "axios";
 
 type FormData = {
-  firstName: string;
-  lastName: string;
-  workEmail: string;
+  fullName: string;
+  email: string;
+  jobTitle: string;
   phoneNumber: string;
-  skuCount: string;
   companyName: string;
   message: string;
   hearAboutUs: string;
-  consent: boolean;
+  skuRange: string;
 };
-
-type FormErrors = Partial<Record<keyof FormData, string>>;
 
 export default function BookDemo() {
   const [formData, setFormData] = useState<FormData>({
-    firstName: "",
-    lastName: "",
-    workEmail: "",
+    fullName: "",
+    email: "",
+    jobTitle: "",
     phoneNumber: "",
-    skuCount: "1-5 SKUs",
     companyName: "",
     message: "",
     hearAboutUs: "",
-    consent: false,
+    skuRange: "",
   });
 
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {};
-
-    if (!formData.firstName.trim())
-      newErrors.firstName = "First name is required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    if (!formData.workEmail.trim()) {
-      newErrors.workEmail = "Work email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.workEmail)) {
-      newErrors.workEmail = "Please enter a valid email";
-    }
-    if (!formData.phoneNumber.trim())
-      newErrors.phoneNumber = "Phone number is required";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    if (!formData.consent) newErrors.consent = "You must consent to continue";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
-    const { name, value, type } = e.target;
-    const checked =
-      type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
-
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "checkbox" ? checked : value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!validateForm()) return;
-
     setIsSubmitting(true);
+    setError("");
 
     try {
-      // Replace with your actual API endpoint or email service
-      await axios.post("https://your-api-endpoint.com/contact", formData);
-      setSubmitSuccess(true);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        workEmail: "",
-        phoneNumber: "",
-        skuCount: "1-5 SKUs",
-        companyName: "",
-        message: "",
-        hearAboutUs: "",
-        consent: false,
+      const response = await fetch("http://localhost:5000/api/demo-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting your form. Please try again.");
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      setSubmitSuccess(true);
+    } catch (err) {
+      setError("There was an error submitting your form. Please try again.");
+      console.error("Form submission error:", err);
     } finally {
       setIsSubmitting(false);
     }
@@ -106,8 +75,8 @@ export default function BookDemo() {
               Thank You!
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Your message has been sent successfully. Our team will get back to
-              you soon.
+              Your demo request has been submitted. Our team will contact you
+              shortly.
             </p>
           </div>
         </div>
@@ -116,119 +85,97 @@ export default function BookDemo() {
   }
 
   return (
-    <div>
-      <div className="bg-white max-w-[1400px]  rounded-lg shadow-xl mx-auto px-4 flex min-h-screen flex-col justify-center mb-10">
-        <div className="flex flex-col pt-28 md:pt-24 relative overflow-hidden">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl bg-gradient-to-r from-blue-700 via-blue-400 to-blue-900 bg-clip-text inline-block text-transparent font-bold mb-4">
-              GET IN TOUCH WITH
-            </h1>
-            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-blue-900 bg-clip-text text-transparent mb-6">
-              UNIQ HEIGHTS
-            </h2>
-            <p className="text-xl text-gray-600">
-              Questions About How We Can Help Your Amazon Business? Our Team Is
-              Ready To Assist.
-            </p>
-          </div>
+    <div className="min-h-screen bg-gray-50 py-24 md:py-40 px-1.5 md:px-8 sm:px-6 lg:px-8">
+      <div className="mx-auto">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+          <div className="md:flex">
+            {/* Left side - Content */}
+            <div className="md:w-1/2 p-8 md:p-12 bg-blue-600 text-white">
+              <span className="text-2xl/6 md:text-5xl/16 font-bold text-center md:text-left">
+                Get in Touch with UNIQ Heights
+              </span>
 
-          <div className="flex flex-col md:flex-row gap-8 shadow-lg">
-            {/* Form Section */}
-            <div className="w-full md:w-1/2  items-center justify-center hidden md:flex md:">
-              <div className="bg-transparent p-2  rounded-lg h-full w-full flex items-center justify-center">
-                <img
-                  src="/assets/book_demo_illustration2.png"
-                  alt=""
-                  className="-mt-44  lg:scale-100 ml-6  "
-                />
-              </div>
+              <p className="text-xl mb-6 text-center md:text-left mt-4">
+                Get full access to all features for 14-days
+              </p>
+              <p className="mb-8 text-xl text-center md:text-left">
+                Questions about how we can help your Amazon business? Our team
+                is ready to assist.
+              </p>
+              <img src="/assets/book_demo_illustration.png" alt="" />
             </div>
-            <div className="w-full md:w-1/2 bg-white rounded-lg  p-8">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-6">
-                Contact Our Team
-              </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      First Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                        errors.firstName ? "border-red-500" : "border-gray-300"
-                      }`}
-                    />
-                    {errors.firstName && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.firstName}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Last Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                        errors.lastName ? "border-red-500" : "border-gray-300"
-                      }`}
-                    />
-                    {errors.lastName && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.lastName}
-                      </p>
-                    )}
-                  </div>
+            {/* Right side - Form */}
+            <div className="md:w-1/2 p-8 md:p-12">
+              <h2 className="text-2xl font-semibold mb-2 text-center md:text-left">
+                Contact our team
+              </h2>
+              {error && (
+                <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+                  {error}
+                </div>
+              )}
+              <form onSubmit={handleSubmit} className="space-y-6 mt-8">
+                <div>
+                  <label
+                    htmlFor="fullName"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Full Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
                 </div>
 
                 <div>
                   <label
-                    htmlFor="workEmail"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Work Email *
+                    Work Email*
                   </label>
                   <input
                     type="email"
-                    id="workEmail"
-                    name="workEmail"
-                    value={formData.workEmail}
+                    id="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.workEmail ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
                   />
-                  {errors.workEmail && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.workEmail}
-                    </p>
-                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="jobTitle"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    Job Title*
+                  </label>
+                  <input
+                    type="text"
+                    id="jobTitle"
+                    name="jobTitle"
+                    value={formData.jobTitle}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  />
                 </div>
 
                 <div>
                   <label
                     htmlFor="phoneNumber"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Phone Number *
+                    Phone Number*
                   </label>
                   <input
                     type="tel"
@@ -236,44 +183,17 @@ export default function BookDemo() {
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.phoneNumber ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
                   />
-                  {errors.phoneNumber && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.phoneNumber}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="skuCount"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Number Of Amazon SKUs
-                  </label>
-                  <select
-                    id="skuCount"
-                    name="skuCount"
-                    value={formData.skuCount}
-                    onChange={handleChange}
-                    className="w-full px-2 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
-                  >
-                    <option value="1-5 SKUs">1-5 SKUs</option>
-                    <option value="6-10 SKUs">6-10 SKUs</option>
-                    <option value="11-20 SKUs">11-20 SKUs</option>
-                    <option value="20+ SKUs">20+ SKUs</option>
-                  </select>
                 </div>
 
                 <div>
                   <label
                     htmlFor="companyName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Company Name
+                    Company Name*
                   </label>
                   <input
                     type="text"
@@ -281,40 +201,59 @@ export default function BookDemo() {
                     name="companyName"
                     value={formData.companyName}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
                   />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="skuRange"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    SKU Range*
+                  </label>
+                  <select
+                    id="skuRange"
+                    name="skuRange"
+                    value={formData.skuRange}
+                    onChange={handleChange}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
+                  >
+                    <option value="">Select SKU Range</option>
+                    <option value="1-3">1-3</option>
+                    <option value="3-5">3-5</option>
+                    <option value="5-10">5-10</option>
+                    <option value="10-20">10-20</option>
+                    <option value="20-50">20-50</option>
+                    <option value="50-100">50-100</option>
+                  </select>
                 </div>
 
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    Message *
+                    Message*
                   </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-2 border rounded-md focus:ring-indigo-500 focus:border-indigo-500 ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    required
                   />
-                  {errors.message && (
-                    <p className="mt-1 text-sm text-red-600">
-                      {errors.message}
-                    </p>
-                  )}
                 </div>
 
                 <div>
                   <label
                     htmlFor="hearAboutUs"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium text-gray-700"
                   >
-                    How Did You Hear About Us?
+                    How did you hear about us?
                   </label>
                   <input
                     type="text"
@@ -322,52 +261,17 @@ export default function BookDemo() {
                     name="hearAboutUs"
                     value={formData.hearAboutUs}
                     onChange={handleChange}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
-                </div>
-
-                <div className="flex items-start">
-                  <div className="flex items-center h-5">
-                    <input
-                      id="consent"
-                      name="consent"
-                      type="checkbox"
-                      checked={formData.consent}
-                      onChange={handleChange}
-                      className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    />
-                  </div>
-                  <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="consent"
-                      className={`font-medium ${
-                        errors.consent ? "text-red-600" : "text-gray-700"
-                      }`}
-                    >
-                      By Checking This Box, You Consent To Receive Marketing
-                      Communications Related To UNIQ Heights Products, Services
-                      Or Events
-                    </label>
-                    <p className="text-gray-500">
-                      Your Data Will Be Used By UNIQ Heights To Contact You With
-                      Information Related To Your Request, And If Applicable, To
-                      Marketing. For More Information, Read Our Privacy Policy
-                    </p>
-                    {errors.consent && (
-                      <p className="mt-1 text-sm text-red-600">
-                        {errors.consent}
-                      </p>
-                    )}
-                  </div>
                 </div>
 
                 <div>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-blue-400  hover:bg-indigo-700 `  disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Submitting..." : "Request a Demo"}
                   </button>
                 </div>
               </form>

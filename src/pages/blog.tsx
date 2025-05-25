@@ -81,7 +81,10 @@ export default function BlogPage() {
   const selectedBlog = selectedIndex !== null ? blogs[selectedIndex] : null;
 
   return (
-    <div className="mx-auto px-4 py-6 flex min-h-screen flex-col items-center justify-between">
+    <div className="relative mx-auto px-4 py-6 flex min-h-screen flex-col items-center justify-between">
+      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
+
       <div className="flex flex-col min-h-screen pt-24 relative overflow-hidden">
         <span className="text-6xl font-bold mb-6 text-blue-600">Blogs</span>
         <div className="grid md:grid-cols-3 gap-6">

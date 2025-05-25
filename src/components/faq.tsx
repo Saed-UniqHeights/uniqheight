@@ -43,7 +43,10 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="max-w-2xl md:max-w-7xl md:min-w-screen mx-auto md:px-32 px-2 py-16">
+    <div className="relative max-w-2xl md:max-w-7xl md:min-w-screen mx-auto md:px-32 px-2 py-16">
+      <div className="absolute inset-0"></div>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
+
       <div className="text-center mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -152,22 +155,6 @@ const FAQSection = () => {
               } to read`
             : "You've read all FAQs"}
         </p>
-      </motion.div>
-
-      <motion.div
-        className="mt-8 text-center"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        <p className="text-gray-700 text-xl mb-4">Still have questions?</p>
-        <motion.button
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-24 rounded-lg"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Contact Support
-        </motion.button>
       </motion.div>
     </div>
   );

@@ -9,7 +9,7 @@ const App = () => {
       <main
         className="min-h-screen  ">
         <Navbar />
-        
+       
           <Routes  />
 
         <Footer />
