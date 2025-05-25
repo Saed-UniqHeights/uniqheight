@@ -5,10 +5,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative px-4 md:py-12 lg:py-18 xl:py-20 sm:px-6 lg:px-8">
-      <div className="absolute inset-0">
-      </div>
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-
+      
       {/* YouTube Modal */}
       {showVideoModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">

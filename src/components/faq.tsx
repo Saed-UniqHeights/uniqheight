@@ -44,9 +44,7 @@ const FAQSection = () => {
 
   return (
     <div className="relative max-w-2xl md:max-w-7xl md:min-w-screen mx-auto md:px-32 px-2 py-16">
-      <div className="absolute inset-0"></div>
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"></div>
-
+     
       <div className="text-center mb-12">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

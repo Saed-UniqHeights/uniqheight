@@ -58,7 +58,8 @@ export default function CTASection() {
   }, []);
 
   return (
-    <section className="text-white py-10  ">
+    <section className="relative text-white py-10  ">
+      
       <div className="max-w-7xl min-w-screen mx-auto text-center">
         <h2 className="text-3xl md:text-6xl font-bold mb-2">
           Transform Your Amazon Business with
@@ -72,13 +73,16 @@ export default function CTASection() {
         </p>
 
         <div className="space-x-2">
-          <button className="bg-white text-blue-600 font-bold py-4 px-8 rounded-full hover:bg-blue-50 transition duration-300 mb-4 md:mb-0 md:mr-4">
-            Get Started
-          </button>
-
-          <button className="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition duration-300">
-            Learn More
-          </button>
+          <a href="/book-demo">
+            <button className="bg-white text-blue-600 font-bold py-4 px-8 rounded-full hover:bg-blue-50 transition duration-300 mb-4 md:mb-0 md:mr-4">
+              Get Started
+            </button>
+          </a>
+          <a href="/try-demo">
+            <button className="border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-blue-600 transition duration-300">
+              Learn More
+            </button>
+          </a>
         </div>
 
         <div className="mt-16">
@@ -116,6 +120,7 @@ export default function CTASection() {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );

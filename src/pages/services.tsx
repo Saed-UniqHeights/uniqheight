@@ -273,9 +273,6 @@ const Demos: React.FC<DemoProps> = ({ mode }) => {
   return (
     <div id="demos" className="relative md:py-40">
       <div className="absolute inset-0">
-        <div className="relative h-full w-full  [&>div]:absolute [&>div]:bottom-0 [&>div]:left-[-20%] [&>div]:right-0 [&>div]:top-[-10%] [&>div]:h-[500px] [&>div]:w-[500px] [&>div]:rounded-full [&>div]:bg-[radial-gradient(circle_farthest-side,rgba(255,87,34,.25),rgba(255,255,255,0))]">
-          <div></div>
-        </div>
       </div>
       <motion.div
         className="text-center mb-12"
