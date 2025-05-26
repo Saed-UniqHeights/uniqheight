@@ -34,10 +34,10 @@ const AboutUs: React.FC = () => {
   };
 
   return (
-    <section className="bg-white  py-16 px-2 sm:px-6 lg:px-8">
+    <section className=" py-16 px-2 sm:px-6 lg:px-8">
       <div className="mx-auto text-center mb-12">
         <h2 className="text-2xl px-2 sm:text-3xl font-semibold text-gray-900">
-          Meet our team of{" "} Our success experts
+          Meet our team of Our success experts
         </h2>
         <p className="mt-4 md:px-50 text-gray-600 text-base sm:text-lg">
           Get help 24/7, with a dedicated team of experts who know your business
@@ -47,7 +47,8 @@ const AboutUs: React.FC = () => {
         </p>
       </div>
 
-      <div className="max-w-screen bg-white ">
+      <div className="max-w-screen bg-transparent  ">
+       
         <Slider {...settings}>
           {team.map((member, index) => (
             <div key={index} className="px-4">

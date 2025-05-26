@@ -165,7 +165,12 @@ const TryDemo: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-1  flex min-h-screen flex-col items-center justify-between">
-      <div className="flex flex-col min-h-screen pt-28 md:pt-30 relative overflow-hidden bg-white">
+      <div className="absolute inset-0">
+        <div className="relative h-full w-full bg-red [&>div]:absolute [&>div]:h-full [&>div]:w-full [&>div]:bg-[radial-gradient(#b2c0db_1px,transparent_1px)] [&>div]:[background-size:16px_16px] [&>div]:[mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+          <div></div>
+        </div>
+      </div>
+      <div className="flex flex-col min-h-screen pt-28 md:pt-30 relative overflow-hidden ">
         <h1 className="text-3xl font-bold text-gray-900 mb-8 text-center">
           Dashboard Demos
         </h1>

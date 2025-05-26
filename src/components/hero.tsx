@@ -5,10 +5,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative px-4 md:py-12 lg:py-18 xl:py-20 sm:px-6 lg:px-8">
-      
       {/* YouTube Modal */}
       {showVideoModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparant ">
           <div className="relative w-full max-w-4xl mx-4">
             <button
               onClick={() => setShowVideoModal(false)}
@@ -16,7 +15,7 @@ const HeroSection = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8"
+                className="h-10 w-10 text-black"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -29,9 +28,9 @@ const HeroSection = () => {
                 />
               </svg>
             </button>
-            <div className="aspect-w-16 aspect-h-9">
+            <div className="aspect-w-64 aspect-h-32">
               <iframe
-                className="w-full h-full"
+                className="w-[900px] h-[505px]"
                 src="https://www.youtube.com/embed/ojGdxoaQO3E?autoplay=1"
                 title="YouTube video player"
                 frameBorder="0"
@@ -131,7 +130,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div>
+      <div className="bg-transparent">
         <span className="flex flex-wrap justify-center text-center items-center text-6xl font-semibold bg-gradient-to-t from-blue-500  to-blue-600 bg-clip-text text-transparent mt-24">
           The Amazon Seller's Blind Spot
         </span>
