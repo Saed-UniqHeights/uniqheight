@@ -108,17 +108,10 @@ const Home: React.FC = () => {
       <div className="w-full bg-gradient-to-t from-orange-400 to-orange-500 text-white text-2xl  tracking-wide font-semibold text-center py-3 px-1 mb-4 mt-6 md:-mt-90 lg:-mt-40  shadow-xl ">
         Used by 500+ Amazon sellers managing over $100M in sales
       </div>
-      <motion.section
-        ref={servicesRef}
-        id="services"
-        className="mr-4 md:-mb-32 md:-mt-24  "
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        exit={{ opacity: 0 }}
+      {/* <motion.section
       >
         <Services />
-      </motion.section>
+      </motion.section> */}
       <motion.section>
         <Pricing />
       </motion.section>
