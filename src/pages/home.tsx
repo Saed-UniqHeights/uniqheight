@@ -30,7 +30,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center w-full overflow-x-hidden bg-transparent">
-      
       <motion.section
         className="items-center"
         initial={{ opacity: 0, y: 40 }}
@@ -92,7 +91,6 @@ const Home: React.FC = () => {
         transition={{ duration: 1 }}
         exit={{ opacity: 0 }}
       >
-       
         <AboutUs />
       </motion.section>
       <motion.section
