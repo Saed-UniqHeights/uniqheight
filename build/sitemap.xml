@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="https://demo.uniqheights.com"
+>
+  <url>
+    <loc>https://demo.uniqheights.com</loc>
+    <lastmod>2025-05-27</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://demo.uniqheights.com/about</loc>
+    <lastmod>2025-05-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://demo.uniqheights.com/book-demo</loc>
+    <lastmod>2025-05-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>

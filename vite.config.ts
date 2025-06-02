@@ -7,6 +7,9 @@ import path from "path";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/",
+  build: {
+    outDir: "build", // 👈 change from default "dist" to "build"
+  },
   css: {
     postcss: "./postcss.config.js",
   },
