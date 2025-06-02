@@ -4,25 +4,18 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "postbuild": "react-snap",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
-  "reactSnap": {
-    "inlineCss": true,
-    "include": [
-      "/"
-    ],
-    "homepage": "https://Saed-UniqHeights.github.io/uniqheights-fullstack.git"
-  },
+ 
+  
   "homepage": "https://Saed-UniqHeights.github.io/uniqheights-fullstack.git",
   "keywords": [
     "react",
     "vite",
     "tailwindcss"
-    
   ],
   "author": "Saed",
   "dependencies": {
@@ -51,7 +44,6 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.5.2",
     "react-slick": "^0.30.3",
-    "react-snap": "^1.23.0",
     "rizzui": "^1.0.1",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^3.2.0",
