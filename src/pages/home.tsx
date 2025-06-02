@@ -121,13 +121,7 @@ const Home: React.FC = () => {
       <motion.section className="  bg-gradient-to-r from-blue-600 to-blue-800">
         <CTA />
       </motion.section>
-      <motion.section
-        className=" items-center "
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2, type: "spring", bounce: 0.3 }}
-        viewport={{ once: true }}
-      >
+      <motion.section>
         <BookDemo />
       </motion.section>
     </div>
