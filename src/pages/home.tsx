@@ -41,7 +41,7 @@ const Home: React.FC = () => {
       </motion.section>
 
       <motion.section
-        className="w-full bg-gradient-to-t from-blue-700 to-blue-500 text-white md:-mt-16  text-lg md:text-2xl tracking-wider sm:text-base font-semibold text-center py-3 px-4 mb-4 shadow-xl  "
+        className="w-full tech-slideshow  tracking-[5px]  bg-blue-500 text-white md:-mt-16  text-base md:text-xl  sm:text-base font-semibold text-center py-3 px-4 mb-4 shadow-xl  "
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2, type: "spring", bounce: 0.3 }}
@@ -67,8 +67,12 @@ const Home: React.FC = () => {
       <div className="text-center  md:text-left lg:text-left items-center py-6 px-4 lg:py-16 lg:px-14 md:-mt-4  overflow-hidden mb-0">
         <div className="grid lg:grid-cols-2 gap-2 lg:gap-2 items-center">
           <div>
-            <span className="text-4xl/12 md:text-6xl/20  text-center  md:text-left font-bold bg-gradient-to-t from-blue-700 to-blue-500 bg-clip-text text-transparent">
-              Why UNIQ HEIGHTS Outperforms All Amazon Analytics Tools
+            <span className="text-4xl/12 md:text-6xl/20  text-center uppercase  md:text-left font-bold bg-gradient-to-t from-blue-700 to-blue-500 bg-clip-text text-transparent ">
+              Why UNIQ HEIGHTS
+              <span className="text-black">
+                {" "}
+                Outperforms All Amazon Analytics Tools{" "}
+              </span>
             </span>
             <p className="mt-6 max-w-[550px] text-lg text-center md:text-left text-gray-600">
               UNIQ Heights stands alone in providing complete action-to-result

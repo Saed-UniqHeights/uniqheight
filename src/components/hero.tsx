@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { PiRocketLaunchFill } from "react-icons/pi";
+import VideoPlayer from "./player";
 
 const HeroSection = () => {
   const [showVideoModal, setShowVideoModal] = useState(false);
@@ -42,88 +44,61 @@ const HeroSection = () => {
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto mt-24 grid grid-cols md:mt-24 lg:grid-cols-2 gap-12 items-center ">
+      <div className="max-w-7xl mx-auto mt-24 grid grid-cols md:mt-16 lg:grid-cols-2 gap-12 items-center ">
         {/* Text Content */}
         <div className="order-2 lg:order-1">
-          <h1 className="text-4xl text-center md:text-left sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="block bg-gradient-to-t from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              See Which
-            </span>
-            <span className="block bg-gradient-to-b from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              Actions Actually
-            </span>
-            <span className="block bg-gradient-to-t from-blue-600 to-blue-400 bg-clip-text text-transparent">
-              Drive Your
-            </span>
-            <span className="block bg-gradient-to-b from-blue-600 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl text-center md:text-left sm:text-5xl  lg:text-[40px] font-bold md:leading-[60px] leading-[50px] tracking-[1px]  mb-6 ">
+            See Which Actions Actually Drive Your
+            <img
+              src="/assets/amazon.png"
+              alt=""
+              className="absolute md:top-55 md:right-0 left-[40px] md:left-[300px]   w-20 animate-bounce "
+            />
+            <span className="ml-12 bg-gradient-to-l from-orange-600 to-orange-400 bg-clip-text text-transparent">
               Amazon Sales
             </span>
           </h1>
 
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl">
+          <p className="mt-6 text-lg tracking-[2px] text-center md:text-left text-gray-500   max-w-3xl">
             Stop guessing, start seeing where your profits really come from
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <button className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-colors duration-200">
+            <button className="flex px-6 py-3  text-xl tracking-[2px]  border border-transparent  font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10 transition-colors duration-200">
+              <PiRocketLaunchFill className="md:text-3xl text-2xl mr-4" />
               <a href="/book-demo">Start Free 7-Day Trial</a>
             </button>
             <button
               onClick={() => setShowVideoModal(true)}
-              className="px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
+              className="px-8 py-3 text-xl border border-transparent font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10 transition-colors duration-200"
             >
               See Live Demo
             </button>
           </div>
 
-          <p className="mt-6 text-lg text-gray-900">No credit card required</p>
+          <p className="mt-6 text-[17px] text-center  md:text-left text-gray-500  ">
+            No credit card required
+          </p>
         </div>
 
-        {/* Animated Pattern Container */}
-        <div className="order-1 lg:order-2 relative w-full aspect-video lg:aspect-auto lg:h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-br from-blue-50 to-blue-100">
+        {/* Animated Pattern Containe r    */}
+
+        <div className="order-1 lg:order-2 relative md:w-[700px] w-full aspect-video lg:aspect-auto lg:h-full rounded-xl overflow-hidden shadow-lg ">
           {/* Animated pattern elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            {/* Animated circles */}
-            <div className="absolute top-1/4 left-1/4 w-16 h-16 rounded-full bg-blue-200 opacity-30 animate-float1"></div>
-            <div className="absolute top-1/3 right-1/4 w-24 h-24 rounded-full bg-blue-300 opacity-20 animate-float2"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-20 h-20 rounded-full bg-blue-400 opacity-25 animate-float3"></div>
+         <VideoPlayer />
+        </div>
 
-            {/* Animated grid lines */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-0 left-0 right-0 h-px bg-blue-500 animate-line1"></div>
-              <div className="absolute top-1/3 left-0 right-0 h-px bg-blue-500 animate-line2"></div>
-              <div className="absolute top-2/3 left-0 right-0 h-px bg-blue-500 animate-line3"></div>
-              <div className="absolute left-0 top-0 bottom-0 w-px bg-blue-500 animate-line4"></div>
-              <div className="absolute left-1/3 top-0 bottom-0 w-px bg-blue-500 animate-line5"></div>
-              <div className="absolute left-2/3 top-0 bottom-0 w-px bg-blue-500 animate-line6"></div>
-            </div>
-
-            {/* Play button overlay */}
-            <div
-              className="absolute inset-0 flex items-center justify-center cursor-pointer"
-              onClick={() => setShowVideoModal(true)}
-            >
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-blue-600 bg-opacity-90 flex items-center justify-center hover:bg-opacity-100 transition-all duration-200 shadow-lg">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-10 w-10 text-white ml-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+        <div className="hidden md:flex order-1 lg:order-2 md:relative  justify-center items-center -z-50">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-full h-full relative">
+              <div className="absolute top-0 left-0 w-full h-full animate-float1 ">
+                <div className="w-16 h-16 bg-blue-500/30 rounded-full"></div>
+              </div>
+              <div className="absolute top-0 left-0 w-full h-full animate-float2">
+                <div className="w-20 h-20 bg-blue-600/20 rounded-full"></div>
+              </div>
+              <div className="absolute top-0 left-0 w-full h-full animate-float3">
+                <div className="w-24 h-24 bg-blue-700/10 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -131,8 +106,12 @@ const HeroSection = () => {
       </div>
 
       <div className="bg-transparent">
-        <span className="flex flex-wrap justify-center text-center items-center text-6xl font-semibold bg-gradient-to-t from-blue-500  to-blue-600 bg-clip-text text-transparent mt-24">
-          The Amazon Seller's Blind Spot
+        <span className="flex flex-wrap tracking-wider justify-center text-center items-center text-6xl font-semibold  md:mt-24 mt-16">
+          The
+          <span className="mx-4 bg-gradient-to-t from-blue-500  to-blue-600 bg-clip-text text-transparent">
+            Amazon Seller's
+          </span>
+          Blind Spot
         </span>
       </div>
       <div>

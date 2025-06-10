@@ -6,7 +6,7 @@ import Routes from "../src/config/routes";
 const App = () => {
   return (
     <>
-      <main className="min-h-screen  ">
+      <main className="min-h-screen  font-exo ">
         <Navbar />
         
           <Routes />

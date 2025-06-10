@@ -1,3 +1,6 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+// Importing default theme from Tailwind CSS to extend it
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -25,6 +28,8 @@ module.exports = {
       },
     },
     extend: {
+      
+
       screens: {
         sm: "640px", // Small devices (phones)
         md: "768px", // Medium devices (tablets)

@@ -92,11 +92,11 @@ export default function PricingSection() {
     
     return (
       <section className="max-w-7xl mx-auto sm:max-w-2xl  flex min-h-screen flex-col items-center justify-between">
-        <div className="flex flex-col min-h-screen pt-3 md:pt-8 sm:mt-40 sm:mx-1 relative overflow-hidde">
-          <span className="text-5xl  md:text-4xl lg:text-7xl font-semibold bg-gradient-to-t from-blue-700 to-blue-500 bg-clip-text text-transparent mx-12 md:mx-auto lg:mx-auto text-center mt-4  relative z-20">
+        <div className="flex flex-col min-h-screen pt-3  sm:mt-5 sm:mx-1 relative overflow-hidde">
+          <span className="text-5xl  md:text-4xl lg:text-7xl font-semibold bg-gradient-to-t from-blue-700 to-blue-500 bg-clip-text text-transparent mx-12 md:mx-auto lg:mx-auto text-center mt-4 mb-10  relative z-20">
             Pricing Based on SKU Count
           </span>
-          <span className="text-lg md:text-2xl text-center mt-2 mx-12 md:mx-auto lg:mx-auto md:mt-8 tracking-wider relative z-20">
+          <span className="text-lg md:text-2xl text-center mt-2 mx-12 md:mx-auto lg:mx-auto md:mt-6 tracking-wider relative z-20">
             Simple, Transparent Pricing Based on Your SKU Count
           </span>
 
@@ -117,16 +117,16 @@ export default function PricingSection() {
             </Select>
           </div>
           {selectedSKU && (
-            <div className="mt-4 px-6 mx-1 rounded-xl  shadow-sm text-right text-base hover:border-blue-500 text-black bg-white py-3 ">
+            <div className="mt-4 px-6 mx-10 rounded-xl  shadow-sm text-right text-base hover:border-blue-500 text-black bg-white py-2 ">
               <span className="font-bold">
                 {isYearly ? "Yearly" : "Monthly"} Price: £{getPrice()}
               </span>
               <span></span>
             </div>
           )}
-          <div className="flex space-x-[157px] md:space-x-[800px] lg:space-x-[960px] lg mt-4 px-4 mx-1 rounded-xl   shadow-sm  text-base hover:border-blue-500 text-gray-500 bg-white py-3 ">
-            <span className="text-le text-black ">Choose your plan</span>
-            <div className="flex space-x-2 justify-center items-center text-black">
+          <div className="flex space-x-[150px] md:space-x-[1000px]  mt-4 px-4 mx-1 rounded-xl   shadow-sm  text-sm hover:border-blue-500 text-gray-500 bg-white py-3 ">
+            <span className="text-base text-black/4680  ">Choose your plan</span>
+            <div className="flex space-x-1 md:space-x[00px]  justify-center items-center text-black">
               <Label htmlFor="plan-switch">
                 {isYearly ? "Yearly" : "Monthly"}
               </Label>
@@ -140,7 +140,7 @@ export default function PricingSection() {
           </div>
 
           <div className="bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] p-1 mt-10 md:mt-10 shado  max-w-4xl md:max-w-screen">
-            <h2 className="text-3xl font-bold mb-6 text-center ">
+            <h2 className="text-3xl font-bold mb-6 text-center uppercase ">
               What's Included in Every Plan
             </h2>
             <div className="overflow-x-auto">
@@ -155,12 +155,12 @@ export default function PricingSection() {
                   {features.map((feature, index) => (
                     <tr
                       key={feature.category}
-                      className={index % 2 === 0 ? "bg-white" : "bg-gray-300"}
+                      className={index % 2 === 0 ? "bg-white" : "bg-gray-200"}
                     >
-                      <td className="p-4 font-semibold align-top">
+                      <td className="p-4 font-sans align-top">
                         {feature.category}
                       </td>
-                      <td className="p-4 space-y-2">
+                      <td className="p-4 space-y-2 font-sans font-regular tracking-[1px]">
                         {feature.items.map((item, idx) => (
                           <p key={idx} className="text-sm leading-relaxed">
                             {item}

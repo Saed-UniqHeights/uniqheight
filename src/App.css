@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "slick-carousel/slick/slick.css";
@@ -8,6 +9,13 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-exo: Exo, 'sans-serif';
+  --font-compita: Compita, 'sans-serif';
+  --font-elora: Elora, 'sans-serif';
+  --font-alumni: AlumniSansSC-Medium, 'sans-serif';
+  --font-archivero: ArchieroBold, 'sans-serif';
+  --font-christmas: ChristmasNotebook, 'sans-serif';
+  --font-little: LittleSample, 'sans-serif';
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -112,6 +120,7 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+ 
 }
 
 @layer base {
@@ -125,4 +134,68 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+
+
+@keyframes moveSlideshow {
+  100% { 
+    transform: translateX(-66.6666%);  
+  }
+}
+
+@font-face {
+  font-family: ArchieroBold;
+  src: url("/src/fonts/ArchieroBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: ChristmasNotebook;
+  src: url("/src/fonts/ChristmasNotebook.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: LittleSample;
+  src: url("/src/fonts/LittleSample.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: AlumniSansSC-Medium;
+  src: url("/src/fonts/AlumniSansSC-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Elora;
+  src: url("/src/fonts/ELURE.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Compita;
+  src: url("/src/fonts/compita-medium.otf") format("OpenType");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Exo;
+  src: url("/src/fonts/Exo-Medium.otf") format("openType");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
