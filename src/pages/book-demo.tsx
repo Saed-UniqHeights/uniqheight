@@ -44,13 +44,17 @@ export default function BookDemo() {
     setIsSubmitting(true);
     setError("");
 
+    const formEndpoint = "https://getform.io/f/awnwvqeb"; // Replace with your actual URL
+
     try {
-      const response = await fetch("http://localhost:5000/api/demo-request", {
+      const data = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        data.append(key, value);
+      });
+
+      const response = await fetch(formEndpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        body: data,
       });
 
       if (!response.ok) {
@@ -59,12 +63,13 @@ export default function BookDemo() {
 
       setSubmitSuccess(true);
     } catch (err) {
-      setError("There was an error submitting your form. Please try again.");
       console.error("Form submission error:", err);
+      setError("There was an error submitting your form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   if (submitSuccess) {
     return (
@@ -264,7 +269,15 @@ export default function BookDemo() {
                     className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
-
+                <div>
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
                 <div>
                   <button
                     type="submit"
