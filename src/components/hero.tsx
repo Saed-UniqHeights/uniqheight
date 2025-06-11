@@ -47,17 +47,18 @@ const HeroSection = () => {
       <div className="max-w-7xl mx-auto mt-24 grid grid-cols md:mt-16 lg:grid-cols-2 gap-12 items-center ">
         {/* Text Content */}
         <div className="order-2 lg:order-1">
-          <h1 className="text-4xl text-center md:text-left sm:text-5xl  lg:text-[40px] font-bold md:leading-[60px] leading-[50px] tracking-[1px]  mb-6 ">
+            <h1 className="text-4xl text-center md:text-left sm:text-5xl  lg:text-[40px] font-bold md:leading-[60px] leading-[50px] tracking-[1px]  mb-6 ">
             See Which Actions Actually Drive Your
             <img
               src="/assets/amazon.png"
               alt=""
-              className="absolute md:top-55 md:right-0 left-[40px] md:left-[300px]   w-20 animate-bounce "
+              className="inline-block align-middle mx-2 w-12 sm:w-16 md:w-20 lg:w-24 xl:w-28 h-auto animate-bounce relative"
+              style={{ verticalAlign: "middle" }}
             />
-            <span className="ml-12 bg-gradient-to-l from-orange-600 to-orange-400 bg-clip-text text-transparent">
+            <span className="ml-2 bg-gradient-to-l from-orange-600 to-orange-400 bg-clip-text text-transparent">
               Amazon Sales
             </span>
-          </h1>
+            </h1>
 
           <p className="mt-6 text-lg tracking-[2px] text-center md:text-left text-gray-500   max-w-3xl">
             Stop guessing, start seeing where your profits really come from
